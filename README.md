@@ -28,8 +28,6 @@ near login
   
 It opens up a browser
 ```
-$ near login
-
 Please authorize NEAR CLI on at least one of your accounts.
 
 If your browser doesn't automatically open, please visit this URL
@@ -47,6 +45,23 @@ $
   
 We go into more detail in the Part 3 video of : [Series I - NEAR Blockchain Tutorial](https://github.com/elicorrales/blockchain-tutorials/blob/main/README.md#series-i---near-blockchain-tutorial-deploying-wasm)  
 Here is [the Part 3 video](https://www.youtube.com/watch?v=8gPVbUc5Zos&list=PLNKa8O7lX-w5Myr19mn-dxtSphB5X1jUW&index=4)  
+  
+```
+near state mynearlocalwallet.testnet
+```
+```
+Account mynearlocalwallet.testnet
+{
+  amount: '199999875105225000000000000',
+  block_hash: 'HmvP4WPgdZ5yLj22k5PP1eyty7xU1E2fAMDgq3RNTPC2',
+  block_height: 97105136,
+  code_hash: '11111111111111111111111111111111',
+  locked: '0',
+  storage_paid_at: 0,
+  storage_usage: 428,
+  formattedAmount: '199.999875105225'
+}
+```
   
 
 
