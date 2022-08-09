@@ -49,3 +49,4 @@ We go into more detail in the Part 3 video of : [Series I - NEAR Blockchain Tuto
 Here is [the Part 3 video](https://www.youtube.com/watch?v=8gPVbUc5Zos&list=PLNKa8O7lX-w5Myr19mn-dxtSphB5X1jUW&index=4)  
   
 
+
