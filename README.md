@@ -19,6 +19,31 @@ cargo build --target wasm32-unknown-unknown --release
 ```
   
 ```
+sudo apt install python3 python3-pip python3-dev
+```
+```
+pip3 --version
+```
+```
+pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+```
+  
+```
+pip3 install --upgrade pip
+```
+```
+usr/lib/python3/dist-packages/secretstorage/util.py:19: CryptographyDeprecationWarning: int_from_bytes is deprecated, use int.from_bytes instead
+  from cryptography.utils import int_from_bytes
+/home/IamDeveloper/.local/lib/python3.8/site-packages/cryptography/hazmat/backends/openssl/x509.py:14: CryptographyDeprecationWarning: This version of cryptography contains a temporary pyOpenSSL fallback path. Upgrade pyOpenSSL now.
+  warnings.warn(
+Collecting pip
+  Downloading pip-22.2.2-py3-none-any.whl (2.0 MB)
+     |████████████████████████████████| 2.0 MB 2.1 MB/s
+Installing collected packages: pip
+Successfully installed pip-22.2.2
+```
+  
+```
 npm install -g near-cli
 ```
   
