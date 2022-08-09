@@ -63,5 +63,17 @@ Account mynearlocalwallet.testnet
 }
 ```
   
+Perhaps either create an Bash ```alias```, or a global ```export```.  I chose an alias.  
+In ```~/.bashrc```, near bottom, I added:  
+```
+alias localnear="NEAR_ENV=localnet;near";
+```
+  
+The above distinguishes the command I would run when deploying to local node vs deploying to testnet.  
+  
+
+```
+localnear deploy --accountId mynearlocalwallet.testnet --wasmFile target/wasm32-unknown-unknown/release/rust-counter-tutorial-bin-lib.wasm
+```
 
 
