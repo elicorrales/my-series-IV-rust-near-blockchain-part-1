@@ -42,6 +42,50 @@ Collecting pip
 Installing collected packages: pip
 Successfully installed pip-22.2.2
 ```
+```
+pip3 install --user nearup
+```
+```
+Collecting nearup
+  Downloading nearup-1.7.0-py3-none-any.whl (21 kB)
+Requirement already satisfied: click in /usr/lib/python3/dist-packages (from nearup) (7.0)
+Collecting psutil
+  Downloading psutil-5.9.1-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (284 kB)
+     |████████████████████████████████| 284 kB 2.9 MB/s
+Collecting boto3
+  Downloading boto3-1.24.47-py3-none-any.whl (132 kB)
+     |████████████████████████████████| 132 kB 14.0 MB/s
+Collecting botocore<1.28.0,>=1.27.47
+  Downloading botocore-1.27.47-py3-none-any.whl (9.0 MB)
+     |████████████████████████████████| 9.0 MB 18.7 MB/s
+Collecting s3transfer<0.7.0,>=0.6.0
+  Downloading s3transfer-0.6.0-py3-none-any.whl (79 kB)
+     |████████████████████████████████| 79 kB 4.5 MB/s
+Collecting jmespath<2.0.0,>=0.7.1
+  Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
+Collecting python-dateutil<3.0.0,>=2.1
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     |████████████████████████████████| 247 kB 18.8 MB/s
+Requirement already satisfied: urllib3<1.27,>=1.25.4 in /usr/lib/python3/dist-packages (from botocore<1.28.0,>=1.27.47->boto3->nearup) (1.25.8)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.28.0,>=1.27.47->boto3->nearup) (1.14.0)
+Installing collected packages: psutil, python-dateutil, jmespath, botocore, s3transfer, boto3, nearup
+Successfully installed boto3-1.24.47 botocore-1.27.47 jmespath-1.0.1 nearup-1.7.0 psutil-5.9.1 python-dateutil-2.8.2 s3transfer-0.6.0
+```
+```
+pip3 install --user --upgrade nearup
+```
+```
+Requirement already up-to-date: nearup in ./.local/lib/python3.8/site-packages (1.7.0)
+Requirement already satisfied, skipping upgrade: boto3 in ./.local/lib/python3.8/site-packages (from nearup) (1.24.47)
+Requirement already satisfied, skipping upgrade: psutil in ./.local/lib/python3.8/site-packages (from nearup) (5.9.1)
+Requirement already satisfied, skipping upgrade: click in /usr/lib/python3/dist-packages (from nearup) (7.0)
+Requirement already satisfied, skipping upgrade: botocore<1.28.0,>=1.27.47 in ./.local/lib/python3.8/site-packages (from boto3->nearup) (1.27.47)
+Requirement already satisfied, skipping upgrade: jmespath<2.0.0,>=0.7.1 in ./.local/lib/python3.8/site-packages (from boto3->nearup) (1.0.1)
+Requirement already satisfied, skipping upgrade: s3transfer<0.7.0,>=0.6.0 in ./.local/lib/python3.8/site-packages (from boto3->nearup) (0.6.0)
+Requirement already satisfied, skipping upgrade: python-dateutil<3.0.0,>=2.1 in ./.local/lib/python3.8/site-packages (from botocore<1.28.0,>=1.27.47->boto3->nearup) (2.8.2)
+Requirement already satisfied, skipping upgrade: urllib3<1.27,>=1.25.4 in /usr/lib/python3/dist-packages (from botocore<1.28.0,>=1.27.47->boto3->nearup) (1.25.8)
+Requirement already satisfied, skipping upgrade: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.28.0,>=1.27.47->boto3->nearup) (1.14.0)
+```
   
 ```
 npm install -g near-cli
