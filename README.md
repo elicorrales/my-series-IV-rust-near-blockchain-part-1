@@ -145,4 +145,58 @@ The above distinguishes the command I would run when deploying to local node vs 
 localnear deploy --accountId mynearlocalwallet.testnet --wasmFile target/wasm32-unknown-unknown/release/rust-counter-tutorial-bin-lib.wasm
 ```
 
+https://github.com/near/nearup 
+  
+Dockerfile:  
+```
+cat Dockerfile
+#ELI changed to ubuntu:20.04
+#from ubuntu:20.04
+#ELI changed to ubuntu:22.04
+from ubuntu:22.04
 
+#original
+#from ubuntu:18.04
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV PATH="/root/.local/bin:$PATH"
+ENV HOME="/root"
+
+
+#ELI
+#RUN apt-get update && apt-get -y upgrade
+RUN apt-get update &&  apt-get -y upgrade && apt-get install -y python3 python3-pip &&  pip3 install --upgrade pip
+
+
+#original
+RUN apt-get update && apt-get install -y python3 python3-pip &&  pip3 install --upgrade pip
+
+COPY . /root/nearup/
+RUN cd /root/nearup && pip3 install --user .
+
+COPY ./start.sh /root/start.sh
+RUN chmod +x /root/start.sh
+
+#original
+#ENTRYPOINT ["/root/start.sh"]
+
+#ELI
+CMD ["/bin/bash"]
+```
+```
+sudo docker build . --tag mynearupimg2204:bash
+```
+```
+docker run -v $HOME/.mynearup:/root/.near -p 3030:3030 --name mynearup nearprotocol/nearup
+```
+  
+```
+docker run -v $HOME/.near:/root/.near -p 3030:3030 --name mynearup nearprotocol/nearup run localnet
+```
+
+```
+docker exec nearup nearup logs
+docker exec nearup nearup stop
+docker exec nearup nearup run {betanet/testnet}
+```
