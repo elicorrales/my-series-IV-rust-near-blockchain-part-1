@@ -188,7 +188,7 @@ CMD ["/bin/bash"]
 sudo docker build . --tag mynearupimg2204:bash
 ```
 ```
-docker run -v $HOME/.mynearup:/root/.near -p 3030:3030 --name mynearup nearprotocol/nearup
+docker run -it -v $HOME/.mynearup:/root/.near -p 3030:3030 --name mynearup mynearupimg2204:bash
 ```
   
 ```
