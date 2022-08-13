@@ -190,6 +190,72 @@ RUN chmod +x /root/start.sh
 #because the underlying ubuntu has that binary.
 #CMD ["/bin/bash"]
 ```
+
+```
+#ELI changed to ubuntu:20.04
+#from ubuntu:20.04
+#ELI changed to ubuntu:22.04
+from ubuntu:22.04
+
+#original
+#from ubuntu:18.04
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV PATH="/root/.local/bin:$PATH"
+ENV HOME="/root"
+
+
+#ELI
+#RUN apt-get update && apt-get -y upgrade
+RUN apt update \
+    &&  apt -y upgrade \
+    &&  apt install -y file \
+    &&  apt install -y net-tools \
+    &&  apt install -y vim \
+    &&  apt install -y python3 python3-pip \
+    &&  pip3 install --upgrade pip
+
+
+#original
+#RUN apt-get update && apt-get install -y python3 python3-pip &&  pip3 install --upgrade pip
+
+COPY . /root/nearup/
+RUN cd /root/nearup && pip3 install --user .
+
+COPY ./start.sh /root/start.sh
+RUN chmod +x /root/start.sh
+
+#original
+#ENTRYPOINT ["/root/start.sh"]
+
+#ELI
+#note: even without a CMD bash, running a container with -it drops one into a shell
+#because the underlying ubuntu has that binary.
+#BUT running a NON-interactive container will cause it to stop because there's nothing to do.
+#this is true even if the CMD [.. is NOT commented out
+#CMD ["/bin/bash"]
+
+#ELI
+#this version has a unlimited loop and it outputs a dot every few secs.
+#the trap will catch the listed signals, echo 'shutdown' then exit shell.
+#the trap is useful both if you want to stop the container from within, or outside of.
+
+#CMD [ "/bin/bash", "-c", "trap 'echo stopnear;nearup stop;sleep 3;echo shutdown;exit 1;' SIGINT SIGTERM SIGQUIT SIGKILL; while [ 1 ]; do echo -n '.'; sleep 2; done;"]
+CMD [ "/bin/bash", "-c", "/root/start.sh"]
+```
+  
+```start.sh```
+```
+#!/bin/bash
+trap 'echo stopnear;nearup stop;sleep 4;echo shutdown;exit 1;' SIGINT SIGTERM SIGQUIT SIGKILL;
+echo "$@"
+#ELI ELI - modified
+#nearup "$@" && while true; do echo -n "."; sleep 3; done;
+nearup run localnet && while true; do echo -n "."; sleep 3; done;
+```
+  
+
 ```
 sudo docker build . --tag mynearupimg2204:bash
 sudo docker build . --tag mynearupimg2204:nobash
